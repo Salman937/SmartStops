@@ -1,4 +1,5 @@
 @extends('layouts.template')
+
 @section('content')
 <!--main content start-->
 <section id="main-content">
@@ -24,36 +25,32 @@
                      <table  class="display table table-bordered table-striped" id="dynamic-table">
                         <thead>
                            <tr>
-                              <th>Way-Point Name</th>
                               <th>Category Name</th>
-                              <th>Add Loctions to Category</th>
-                              <th>View Loctions List</th>
+                              <th>Title</th>
+                              <th>Waypoint Name</th>
+                              <th>Location</th>
+                              <th>Latitude</th>
+                              <th>Longitude</th>
                               <th>Edit</th>
                               <th>Delete</th>
                            </tr>
                         </thead>
                         <tbody>
-                           @foreach ($categories as $category)
+                           @foreach ($locations as $location)
                            <tr>
-                              <td>{{ $category->waypoint_name }}</td>
-                              <td>{{ $category->category_name }}</td>
+                              <td>{{ $location->category_name }}</td>
+                              <td>{{ $location->title }}</td>
+                              <td>{{ $location->detail_way_point }}</td>
+                              <td>{{ $location->location }}</td>
+                              <td>{{ $location->latitude }}</td>
+                              <td>{{ $location->longitude }}</td>
                               <td>
-                                 <a class="btn btn-success btn-xs" href="{{ route('location.show',['id' => $category->id]) }}">
-                                 <i class="fas fa-map-marked-alt fa-2x"></i>
-                              </td>
-                              <td>
-                                    <a href="{{ route('location.show',['id' => $category->id]) }}" class="btn btn-primary">
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </a>
-                              </td>
-                              </a>
-                              <td>
-                                 <a href="{{ route('waypointscategories.edit',['id' => $category->id]) }}" class="btn btn-info btn-xs">
+                                 <a href="{{ route('waypointscategories.edit',['id' => $location->id]) }}" class="btn btn-info btn-xs">
                                  <i class="fas fa-pencil-alt"></i>
                                  </a>
                               </td>
                               <td>
-                                 <form action="{{ route('waypointscategories.destroy',['id' => $category->id]) }}" method="post" accept-charset="utf-8">
+                                 <form action="{{ route('location.destroy',['id' => $location->location_id]) }}" method="post" accept-charset="utf-8">
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}
                                     <button type="submit" class="btn btn-danger btn-xs">

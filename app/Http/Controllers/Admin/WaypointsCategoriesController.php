@@ -96,10 +96,4 @@ class WaypointsCategoriesController extends Controller
         return redirect()->route('waypointscategories.index');
     }
 
-    public function add_locations($id)
-    {
-        $locations = DB::table('waypoints_categories')->where('id',$id)->first();
-
-        return view('admin/waypointscategories/locations')->with('location',$locations)->with('heading','location');
-    }
 }
