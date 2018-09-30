@@ -25,7 +25,12 @@
     <!-- Custom styles for this template -->
 
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/css/style-responsive.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/css/style-responsive.css') }}" rel="stylesheet"/>
+
+    <!--dynamic table-->
+    <link href="{{ asset('assets/assets/advanced-datatable/media/css/demo_page.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/assets/advanced-datatable/media/css/demo_table.css') }}" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ asset('assets/assets/data-tables/DT_bootstrap.css') }}" />
 
     <script src="{{ asset('assets/js/jquery.js') }}"></script>
 
@@ -64,7 +69,17 @@
                             <li><a href="#"><i class=" fa fa-suitcase"></i>Profile</a></li>
                             <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
                             <li><a href="#"><i class="fa fa-bell-o"></i> Notification</a></li>
-                            <li><a href="login.html"><i class="fa fa-key"></i> Log Out</a></li>
+                            <li>
+                                <a href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            <i class="fa fa-key"></i> Logout
+                                        </a>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
+                            </li>
                         </ul>
                     </li>
                     <!-- user login dropdown end -->

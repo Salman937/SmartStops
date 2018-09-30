@@ -21,8 +21,14 @@
     <script src="{{ asset('assets/js/jquery.customSelect.min.js') }}" ></script>
     <script src="{{ asset('assets/js/respond.min.js') }}" ></script>
 
+    <script type="text/javascript" language="javascript" src="{{ asset('assets/assets/advanced-datatable/media/js/jquery.dataTables.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/assets/data-tables/DT_bootstrap.js') }}"></script>
+
     <!--right slidebar-->
     <script src="{{ asset('assets/js/slidebars.min.js') }}"></script>
+
+    <!--dynamic table initialization -->
+    <script src="{{ asset('assets/js/dynamic_table_init.js') }}"></script>
 
     <!--common script for all pages-->
     <script src="{{ asset('assets/js/common-scripts.js') }}"></script>

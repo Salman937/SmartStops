@@ -17,7 +17,7 @@
                     <b> Category: {{ $location->category_name }} </b>
                     </header>
                     <div class="panel-body">
-                        <div class="col-sm-6">
+                        <div class="col-sm-8">
                         @if(Session::has('success'))
 
                         <div class="alert alert-success alert-dismissible" role="alert">
@@ -29,36 +29,44 @@
 
                             <form role="form" action="{{ route('waypointscategories.store') }}" method="post">
                             {{ csrf_field() }}
-                                <div class="form-group {{ $errors->has('waypoint_name') ? ' has-error' : '' }}">
-                                    <label >Way-Point Name</label>
-                                    <input type="text" class="form-control" placeholder="Enter Way-Point Name" name="waypoint_name">
+                                <div class="form-group {{ $errors->has('title') ? ' has-error' : '' }}">
+                                    <label >Title</label>
+                                    <input type="text" class="form-control" placeholder="Enter Way-Point Name" name="title">
 
-                                    @if ($errors->has('waypoint_name'))
+                                    @if ($errors->has('title'))
                                         <span class="help-block">
-                                            <strong>{{ $errors->first('waypoint_name') }}</strong>
+                                            <strong>{{ $errors->first('title') }}</strong>
                                         </span>
                                     @endif
                                 </div>
-                                <div class="form-group {{ $errors->has('category_name') ? ' has-error' : '' }}">
-                                    <label for="">Category Name</label>
-                                    <input type="text" class="form-control" id="" placeholder="Enter Category Name" name="category_name">
+                                <div class="form-group {{ $errors->has('waypoint_name') ? ' has-error' : '' }}">
+                                    <label for="">Way-point Name</label>
+                                    <input type="text" class="form-control" id="" placeholder="Enter Category Name" name="waypoint_name">
 
-                                    @if ($errors->has('category_name'))
+                                    @if ($errors->has('waypoint_name'))
                                         <span class="help-block text-danger">
-                                            <strong>{{ $errors->first('category_name') }}</strong>
+                                            <strong>{{ $errors->first('waypoint_name') }}</strong>
                                         </span>
                                     @endif
                                 </div>
 
                                 <div class="form-group">
-            <label for="">Search</label>
-            <input type="text" class="input form-control" id="address" name="address" />
-          </div>
+                                    <label for="">Search</label>
+                                    <input type="text" class="input form-control" id="address" name="address" />
+                                </div>
 
-          <div id="map-view" class="is-vcentered" style="width: 100%; height:400px;"></div>
+                                <div class="form-group">
+                                    <label for="">Latitude</label>
+                                    <input type="text" class="input form-control" name="lat" id="lat" />
+                                </div>
 
-          <input type="hidden" name="lat" id="lat">
-          <input type="hidden" name="log" id="lon">
+                                <div class="form-group">
+                                    <label for="">Longitude</label>
+                                    <input type="text" class="input form-control" name="log" id="lon" />
+                                </div>
+
+                                <div id="map-view" class="is-vcentered" style="width: 100%; height:400px;"></div>
+                                <br>
                                 <button type="submit" class="btn btn-info"><i class="fas fa-save"></i> Save</button>
                             </form>
                         </div>
