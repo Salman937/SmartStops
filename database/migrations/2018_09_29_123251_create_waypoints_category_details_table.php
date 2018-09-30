@@ -18,6 +18,9 @@ class CreateWaypointsCategoryDetailsTable extends Migration
             $table->integer('waypoints_category_id');
             $table->string('title');
             $table->string('waypoint_name');
+            $table->string('location');
+            $table->string('latitude');
+            $table->string('longitude');
             $table->timestamps();
         });
     }

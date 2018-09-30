@@ -1,7 +1,7 @@
  <!--footer start-->
       <footer class="site-footer">
           <div class="text-center">
-              2013 &copy; FlatLab by VectorLab.
+              {{ date('d-m-Y') }} &copy; SmartStops.
               <a href="#" class="go-top">
                   <i class="fa fa-angle-up"></i>
               </a>
@@ -11,7 +11,6 @@
   </section>
 
     <!-- js placed at the end of the document so the pages load faster -->
-    <script src="{{ asset('assets/js/jquery.js') }}"></script>
     <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
     <script class="include" type="text/javascript" src="{{ asset('assets/js/jquery.dcjqaccordion.2.7.js') }}"></script>
     <script src="{{ asset('assets/js/jquery.scrollTo.min.js') }}"></script>
@@ -28,10 +27,6 @@
     <!--common script for all pages-->
     <script src="{{ asset('assets/js/common-scripts.js') }}"></script>
 
-    <!--script for this page-->
-    <script src="{{ asset('assets/js/sparkline-chart.js') }}"></script>
-    <script src="{{ asset('assets/js/easy-pie-chart.js') }}"></script>
-    <script src="{{ asset('assets/js/count.js') }}"></script>
 
   <script>
 
@@ -60,6 +55,15 @@
       });
 
   </script>
+
+<script>
+    @if(Session::has('success'))
+
+       // Display a success toast, with a title
+      toastr.success('sfsfsf');
+
+    @endif
+</script>
 
   </body>
 </html>

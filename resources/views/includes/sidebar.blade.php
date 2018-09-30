@@ -4,23 +4,23 @@
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
             <li>
-                <a class="active" href="index.html">
+                <a class="<?= $heading == "home"?"active":"";?>">
                     <i class="fas fa-home"></i>
                     <span>Home</span>
                 </a>
             </li>
 
             <li class="sub-menu">
-                <a href="javascript:;" >
+                <a href="javascript:;" class="<?= $heading == "categories"?"active":"";?>">
                     <i class="fas fa-project-diagram"></i>
-                    <span>Waypoint & Categories</span>
+                    <span>Categories</span>
                 </a>
                 <ul class="sub">
                     <li>
-                        <a  href="boxed_page.html">Add Categories</a>
+                        <a  class="<?= $heading == "categories"?"active":"";?>" href="{{ route('waypointscategories.create') }}">Add Categories</a>
                     </li>
                     <li>
-                        <a  href="horizontal_menu.html">View Categories</a>
+                        <a class="<?= $heading == "view_categories"?"active":"";?>"  href="{{ route('waypointscategories.index') }}">View Categories</a>
                     </li>
                 </ul>
             </li>
@@ -28,7 +28,7 @@
             <li class="sub-menu">
                 <a href="javascript:;" >
                     <i class="fas fa-map-marker-alt"></i>
-                    <span>Sub Waypoints</span>
+                    <span>Waypoints</span>
                 </a>
             </li>
 

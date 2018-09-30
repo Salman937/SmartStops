@@ -18,3 +18,15 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['middleware' => 'auth'], function () {
+    
+    Route::resource('waypointscategories', 'Admin\WaypointsCategoriesController');
+
+    Route::get('add_locations/{id}', [
+
+        'uses' => 'Admin\WaypointsCategoriesController@add_locations',
+        'as'   =>  'add_locations'
+    ]);
+
+});
