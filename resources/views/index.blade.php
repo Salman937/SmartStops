@@ -10,39 +10,39 @@
             <div class="col-lg-3 col-sm-6">
                 <section class="panel">
                     <div class="symbol terques">
-                        <i class="fa fa-user"></i>
+                    <i class="fas fa-project-diagram"></i>
                     </div>
                     <div class="value">
                         <h1 class="count">
-                            0
+                            {{ $category }}
                         </h1>
-                        <p>New Users</p>
+                        <p>Total Categories</p>
                     </div>
                 </section>
             </div>
             <div class="col-lg-3 col-sm-6">
                 <section class="panel">
                     <div class="symbol red">
-                        <i class="fa fa-tags"></i>
+                        <i class="fas fa-map-pin"></i>
                     </div>
                     <div class="value">
                         <h1 class=" count2">
-                            0
+                        {{ $loactions }}
                         </h1>
-                        <p>Sales</p>
+                        <p>Total Locations</p>
                     </div>
                 </section>
             </div>
             <div class="col-lg-3 col-sm-6">
                 <section class="panel">
                     <div class="symbol yellow">
-                        <i class="fa fa-shopping-cart"></i>
+                        <i class="fas fa-star-half-alt"></i>
                     </div>
                     <div class="value">
                         <h1 class=" count3">
-                            0
+                        {{ $reviews }}
                         </h1>
-                        <p>New Order</p>
+                        <p>App Reviews</p>
                     </div>
                 </section>
             </div>
