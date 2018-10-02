@@ -23,4 +23,5 @@ Route::group(['middleware' => 'auth'], function () {
     
     Route::resource('waypointscategories', 'Admin\WaypointsCategoriesController');
     Route::resource('location', 'Admin\LocationsController');
+    Route::resource('reviews', 'Admin\ReviesController');
 });

@@ -45,7 +45,7 @@
                               <td>{{ $location->latitude }}</td>
                               <td>{{ $location->longitude }}</td>
                               <td>
-                                 <a href="{{ route('waypointscategories.edit',['id' => $location->id]) }}" class="btn btn-info btn-xs">
+                                 <a href="{{ route('location.edit',['id' => $location->location_id]) }}" class="btn btn-info btn-xs">
                                  <i class="fas fa-pencil-alt"></i>
                                  </a>
                               </td>

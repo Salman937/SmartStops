@@ -14,7 +14,7 @@
             <div class="col-lg-12">
                 <section class="panel">
                     <header class="panel-heading">
-                    <b> Add Location to Category </b>
+                    <b> Update Location </b>
                     </header>
                     <div class="panel-body">
                         <div class="col-sm-8">
@@ -27,13 +27,14 @@
                         
                         @endif
 
-                            <form role="form" action="{{ route('location.store') }}" method="post">
+                            <form role="form" action="{{ route('location.update',['id' => $location->id]) }}" method="post">
                             
                             {{ csrf_field() }}
+                            {{ method_field('PUT') }}
 
                                 <div class="form-group {{ $errors->has('title') ? ' has-error' : '' }}">
                                     <label >Title</label>
-                                    <input type="text" class="form-control" placeholder="Enter Title" name="title">
+                                    <input type="text" class="form-control" placeholder="Enter Title" value="{{ $location->title }}" name="title">
 
                                     @if ($errors->has('title'))
                                         <span class="help-block">
@@ -43,7 +44,7 @@
                                 </div>
                                 <div class="form-group {{ $errors->has('waypoint_name') ? ' has-error' : '' }}">
                                     <label for="">Way-point Name</label>
-                                    <input type="text" class="form-control" id="" placeholder="Enter Way point name" name="waypoint_name">
+                                    <input type="text" class="form-control" value="{{ $location->waypoint_name }}" placeholder="Enter Way point name" name="waypoint_name">
 
                                     @if ($errors->has('waypoint_name'))
                                         <span class="help-block text-danger">
@@ -51,8 +52,7 @@
                                         </span>
                                     @endif
                                 </div>
-                                <input type="hidden" name="id" value="{{ $id }}">
-
+                                <input type="hidden" name="id" value="{{ $location->id }}">
                                 <div class="form-group">
                                     <label for="">Search</label>
                                     <input type="text" class="input form-control" id="address" name="address" required/>
@@ -86,7 +86,7 @@
 
  $('#map-view').locationpicker({
 
-   location: {latitude: 25.7276167, longitude: -80.24209209999998},
+   location: {latitude: {{ $location->latitude }}, longitude: {{ $location->longitude }} },
    enableAutocomplete: true,
    radius:0,
    onchanged: function (currentLocation, radius, isMarkerDropped) {

@@ -83,9 +83,9 @@ class LocationsController extends Controller
      */
     public function edit($id)
     {
-        $categories = DB::table('waypoints_categories')->where('id',$id)->first();
+        $location = DB::table('waypoints_category_details')->where('id',$id)->first();
 
-        return view('admin/waypointscategories/edit')->with('category',$categories)->with('heading','edit');
+        return view('admin/location/update_location')->with('location',$location)->with('heading','update');
     }
 
     /**
@@ -97,7 +97,25 @@ class LocationsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+            'title'  => 'required',
+            'waypoint_name'  => 'required',
+        ]);
+
+        DB::table('waypoints_category_details')->where('id',$id)->update([
+
+                'waypoints_category_id' => $id,
+                'title'                 => $request->title,
+                'waypoint_name'         => $request->waypoint_name,
+                'location'              => $request->address,
+                'latitude'              => $request->lat,
+                'longitude'             => $request->log,
+                'updated_at'            => date('Y-m-d H:i:s'),
+        ]);
+
+        Session::flash('success','Location Updated Successfully');
+
+        return redirect()->route('waypointscategories.index');
     }
 
     /**

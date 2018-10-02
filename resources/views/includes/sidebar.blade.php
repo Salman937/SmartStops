@@ -4,7 +4,7 @@
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
             <li>
-                <a class="<?= $heading == "home"?"active":"";?>">
+                <a class="<?= $heading == "home"?"active":"";?>" href="/home">
                     <i class="fas fa-home"></i>
                     <span>Home</span>
                 </a>
@@ -26,25 +26,18 @@
             </li>
 
             <li class="sub-menu">
-                <a href="javascript:;" >
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span>Waypoints</span>
-                </a>
-            </li>
-
-            <li class="sub-menu">
-                <a href="javascript:;" >
+                <a class="<?= $heading == "review"?"active":"";?>" href="{{ route('reviews.index') }}">
                     <i class="fas fa-star-half-alt"></i>
                     <span>App Reviews</span>
                 </a>
             </li>
 
-            <li class="sub-menu">
+            <!-- <li class="sub-menu">
                 <a href="javascript:;" >
                     <i class="fas fa-question-circle"></i>
                     <span>FAQs</span>
                 </a>
-            </li>
+            </li> -->
         </ul>
         <!-- sidebar menu end-->
     </div>

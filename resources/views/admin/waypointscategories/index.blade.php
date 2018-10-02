@@ -38,7 +38,7 @@
                               <td>{{ $category->waypoint_name }}</td>
                               <td>{{ $category->category_name }}</td>
                               <td>
-                                 <a class="btn btn-success btn-xs" href="{{ route('location.show',['id' => $category->id]) }}">
+                                 <a class="btn btn-success btn-xs" href="{{ route('waypointscategories.show',['id' => $category->id]) }}">
                                  <i class="fas fa-map-marked-alt fa-2x"></i>
                               </td>
                               <td>

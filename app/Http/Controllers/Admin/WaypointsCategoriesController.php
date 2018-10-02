@@ -96,4 +96,8 @@ class WaypointsCategoriesController extends Controller
         return redirect()->route('waypointscategories.index');
     }
 
+    public function show($id)
+    {
+        return view('admin/location/locations')->with('id',$id)->with('heading','edit');
+    }
 }
