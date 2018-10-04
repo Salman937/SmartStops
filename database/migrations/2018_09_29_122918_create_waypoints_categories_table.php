@@ -18,6 +18,21 @@ class CreateWaypointsCategoriesTable extends Migration
             $table->increments('id');
             $table->string('category_name');
             $table->string('waypoint_name');
+            $table->text('sub_cat');
+            $table->string('lat');
+            $table->string('long');
+            $table->text('addrs');
+            $table->text('postal_code');
+            $table->string('additional_info');
+            $table->string('country');
+            $table->string('province');
+            $table->string('waypoint_id');
+            $table->date('exp_date');
+            $table->string('email_id');
+            $table->string('phone_number');
+            $table->text('address');
+            $table->string('latitude');
+            $table->string('longitude');
             $table->timestamps();
         });
     }

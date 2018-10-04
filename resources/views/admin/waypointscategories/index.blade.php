@@ -24,10 +24,15 @@
                      <table  class="display table table-bordered table-striped" id="dynamic-table">
                         <thead>
                            <tr>
-                              <th>Way-Point Name</th>
-                              <th>Category Name</th>
-                              <th>Add Loctions to Category</th>
-                              <th>View Loctions List</th>
+                              <th>Category</th>
+                              <th>Sub Category</th>
+                              <th>latDMS</th>
+                              <th>longDMS</th>
+                              <th>Status</th>
+                              <th>Waypoint Name</th>
+                              <th>Expiry Date</th>
+                              <th>Expiry Check</th>
+                              <th>View</th>
                               <th>Edit</th>
                               <th>Delete</th>
                            </tr>
@@ -35,18 +40,25 @@
                         <tbody>
                            @foreach ($categories as $category)
                            <tr>
-                              <td>{{ $category->waypoint_name }}</td>
                               <td>{{ $category->category_name }}</td>
+                              <td>{{ $category->sub_cat }}</td>
+                              <td>{{ $category->lat }}</td>
+                              <td>{{ $category->long }}</td>
                               <td>
-                                 <a class="btn btn-success btn-xs" href="{{ route('waypointscategories.show',['id' => $category->id]) }}">
-                                 <i class="fas fa-map-marked-alt fa-2x"></i>
+                                  <a href="" class="btn btn-xs btn-success">
+                                      Published
+                                  </a>
+                              </td>
+                              <td>{{ $category->waypoint_name }}</td>
+                              <td>{{ $category->exp_date }}</td>
+                              <td>
+                                  <input type="checkbox" name="" id="">
                               </td>
                               <td>
-                                    <a href="{{ route('location.show',['id' => $category->id]) }}" class="btn btn-primary">
-                                        <i class="fas fa-map-marker-alt"></i>
+                                    <a href="{{ route('waypointscategories.show',['id' => $category->id]) }}" class="btn btn-xs btn-primary">
+                                        <i class="fas fa-eye"></i>
                                     </a>
                               </td>
-                              </a>
                               <td>
                                  <a href="{{ route('waypointscategories.edit',['id' => $category->id]) }}" class="btn btn-info btn-xs">
                                  <i class="fas fa-pencil-alt"></i>

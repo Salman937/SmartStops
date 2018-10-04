@@ -13,6 +13,8 @@ class WaypointsCategoriesController extends Controller
     {
         $categories = DB::table('waypoints_categories')->get();
 
+        // dd($categories);
+
         return view('admin/waypointscategories/index')
                     ->with('heading','categories')
                     ->with('heading','view_categories')
@@ -23,16 +25,44 @@ class WaypointsCategoriesController extends Controller
     {
        $this->validate($request,[
 
-            'waypoint_name' => 'required', 
-            'category_name' => 'required', 
+            'waypoint_name'   => 'required', 
+            'category_name'   => 'required', 
+            'sub_cat'         => 'required', 
+            'lat'             => 'required', 
+            'long'            => 'required', 
+            'addrs'           => 'required', 
+            'postal_code'     => 'required', 
+            'additional_info' => 'required', 
+            'country'         => 'required', 
+            'province'        => 'required', 
+            'waypoint_id'     => 'required', 
+            'exp_date'        => 'required', 
+            'phone_number'    => 'required', 
+            'latitude'        => 'required', 
+            'longitude'       => 'required', 
        ]);
 
        DB::table('waypoints_categories')->insert([
 
-            'waypoint_name' => $request->waypoint_name,
-            'category_name' => $request->category_name,
-            'created_at'    => date('Y-m-d'),
-            'updated_at'    => date('Y-m-d'),
+            'waypoint_name'     => $request->waypoint_name,
+            'category_name'     => $request->category_name,
+            'sub_cat'           => $request->sub_cat,
+            'lat'               => $request->lat,
+            'long'              => $request->long,
+            'addrs'             => $request->addrs,
+            'postal_code'       => $request->postal_code,
+            'additional_info'   => $request->additional_info,
+            'country'           => $request->country,
+            'province'          => $request->province,
+            'waypoint_id'       => $request->waypoint_id,
+            'exp_date'          => $request->exp_date,
+            'email_id'          => $request->email_id,
+            'phone_number'      => $request->phone_number,
+            'address'           => $request->address,
+            'latitude'          => $request->latitude,
+            'longitude'         => $request->longitude,
+            'created_at'        => date('Y-m-d H:i:s'),
+            'updated_at'        => date('Y-m-d H:i:s'),
        ]);
 
        Session::flash('success','Category Added Successfully');
@@ -98,6 +128,11 @@ class WaypointsCategoriesController extends Controller
 
     public function show($id)
     {
-        return view('admin/location/locations')->with('id',$id)->with('heading','edit');
+        $all_data = DB::table('waypoints_categories')->where('id',$id)->first();
+
+        // dd($all_data);
+
+        return view('admin/waypointscategories/category_details')->with('data',$all_data)->with('heading','edit');
     }
+
 }
