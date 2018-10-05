@@ -70,22 +70,8 @@
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label for="">LatDMS</label>
-                                        <input type="text" class="input form-control" name="lat" id="latitude"/>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="form-group ">
-                                        <label for="">LongDMS</label>
-                                        <input type="text" class="input form-control" name="long" id="longitude"/>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
                                     <div class="form-group {{ $errors->has('addrs') ? ' has-error' : '' }}">
-                                        <label for="">Address(optional)</label>
+                                        <label for="">Address(Optional)</label>
                                         <textarea class="form-control" name="addrs" id="" rows="5"></textarea>
     
                                         @if ($errors->has('addrs'))
@@ -95,11 +81,26 @@
                                         @endif
                                     </div>
                                 </div>
+                                
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group ">
+                                        <label for="">LongDMS</label>
+                                        <input type="text" class="input form-control" name="long" id="longitude"/>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="">LatDMS</label>
+                                        <input type="text" class="input form-control" name="lat" id="latitude"/>
+                                    </div>
+                                </div>
                             </div>
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group {{ $errors->has('postal_code') ? ' has-error' : '' }}">
-                                        <label for="">Postal Code/Zip Code</label>
+                                        <label for="">Postal Code/Zip Code (Optional)</label>
                                         <input type="text" class="form-control" id="" placeholder="Enter Postal Code/Zip Code" name="postal_code">
     
                                         @if ($errors->has('postal_code'))
@@ -111,7 +112,7 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group {{ $errors->has('additional_info') ? ' has-error' : '' }}">
-                                        <label for="">Additional Info</label>
+                                        <label for="">Additional Info (Optional)</label>
                                         <input type="text" class="form-control" id="" placeholder="Enter Additional Info" name="additional_info">
     
                                         @if ($errors->has('additional_info'))
@@ -189,12 +190,41 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group {{ $errors->has('phone_number') ? ' has-error' : '' }}">
-                                        <label for=""> Phone Number</label>
+                                        <label for=""> Phone Number (Optional)</label>
                                         <input type="text" class="form-control" id="" placeholder="Enter  Phone Number" name="phone_number">
     
                                         @if ($errors->has('phone_number'))
                                             <span class="help-block text-danger">
                                                 <strong>{{ $errors->first('phone_number') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                </div>
+                            </div> 
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group {{ $errors->has('operator_id') ? ' has-error' : '' }}">
+                                        <label for="">Operator's ID</label>
+                                        <input type="text" class="form-control" id="" placeholder="Enter Operator's ID" name="operator_id">
+    
+                                        @if ($errors->has('operator_id'))
+                                            <span class="help-block text-danger">
+                                                <strong>{{ $errors->first('operator_id') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group {{ $errors->has('never_expire') ? ' has-error' : '' }}">
+                                        <label for=""> Never Expire</label>
+                                        <select name="never_expire" class="form-control" id="">
+                                            <option>Yes</option>
+                                            <option>No</option>
+                                        </select>
+    
+                                        @if ($errors->has('never_expire'))
+                                            <span class="help-block text-danger">
+                                                <strong>{{ $errors->first('never_expire') }}</strong>
                                             </span>
                                         @endif
                                     </div>

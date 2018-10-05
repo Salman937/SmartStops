@@ -22,8 +22,8 @@ class CreateWaypointsCategoriesTable extends Migration
             $table->string('lat');
             $table->string('long');
             $table->text('addrs');
-            $table->text('postal_code');
-            $table->string('additional_info');
+            $table->text('postal_code')->nullable();
+            $table->string('additional_info')->nullable();
             $table->string('country');
             $table->string('province');
             $table->string('waypoint_id');
@@ -31,6 +31,8 @@ class CreateWaypointsCategoriesTable extends Migration
             $table->string('email_id');
             $table->string('phone_number');
             $table->text('address');
+            $table->string('never_expire');
+            $table->string('operater_id');
             $table->string('latitude');
             $table->string('longitude');
             $table->timestamps();
