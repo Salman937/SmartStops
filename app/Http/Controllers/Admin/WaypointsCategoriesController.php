@@ -61,6 +61,7 @@ class WaypointsCategoriesController extends Controller
             'latitude'          => $request->latitude,
             'longitude'         => $request->longitude,
             'never_expire'      => $request->never_expire,
+            'pulse'             => $request->pulse,
             'operater_id'       => $request->operator_id,
             'created_at'        => date('Y-m-d H:i:s'),
             'updated_at'        => date('Y-m-d H:i:s'),

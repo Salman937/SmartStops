@@ -57,8 +57,37 @@
                             </div>
                             <div class="row">
                                 <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label >Make Pulsing/Blinking this Waypoint</label>
+                                        <div class="input-group">
+                                        <div class="input-group-addon"><i class="fas fa-exclamation-circle"></i></div>
+                                        <select name="pulse" class="form-control" id="">
+                                            <option>Make Pulse</option>
+                                            <option>Yes</option>
+                                            <option>No</option>
+                                        </select>
+                                    </div>
+                                    <p class="help-block">Is that something special about this waypoint Make it <b>
+                                     YES </b> </p>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group {{ $errors->has('postal_code') ? ' has-error' : '' }}">
+                                        <label for="">Postal Code/Zip Code (Optional)</label>
+                                        <input type="text" class="form-control" id="" placeholder="Enter Postal Code/Zip Code" name="postal_code">
+    
+                                        @if ($errors->has('postal_code'))
+                                            <span class="help-block text-danger">
+                                                <strong>{{ $errors->first('postal_code') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
                                     <div class="form-group {{ $errors->has('sub_cat') ? ' has-error' : '' }}">
-                                        <label for="">Sub Category</label>
+                                        <label for="">Sub Categories</label>
                                         <textarea name="sub_cat" id="sub_cat" class="form-control" rows="5" placeholder="Enter Sub Category" rows="10"></textarea>
                                         <p class="help-block">Please seprate sub catgory with comma ","</p>
     
@@ -99,18 +128,6 @@
                             </div>
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <div class="form-group {{ $errors->has('postal_code') ? ' has-error' : '' }}">
-                                        <label for="">Postal Code/Zip Code (Optional)</label>
-                                        <input type="text" class="form-control" id="" placeholder="Enter Postal Code/Zip Code" name="postal_code">
-    
-                                        @if ($errors->has('postal_code'))
-                                            <span class="help-block text-danger">
-                                                <strong>{{ $errors->first('postal_code') }}</strong>
-                                            </span>
-                                        @endif
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
                                     <div class="form-group {{ $errors->has('additional_info') ? ' has-error' : '' }}">
                                         <label for="">Additional Info (Optional)</label>
                                         <input type="text" class="form-control" id="" placeholder="Enter Additional Info" name="additional_info">
@@ -118,6 +135,21 @@
                                         @if ($errors->has('additional_info'))
                                             <span class="help-block text-danger">
                                                 <strong>{{ $errors->first('additional_info') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group {{ $errors->has('never_expire') ? ' has-error' : '' }}">
+                                        <label for=""> Never Expire</label>
+                                        <select name="never_expire" class="form-control" id="">
+                                            <option>Yes</option>
+                                            <option>No</option>
+                                        </select>
+    
+                                        @if ($errors->has('never_expire'))
+                                            <span class="help-block text-danger">
+                                                <strong>{{ $errors->first('never_expire') }}</strong>
                                             </span>
                                         @endif
                                     </div>
@@ -215,27 +247,14 @@
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
-                                    <div class="form-group {{ $errors->has('never_expire') ? ' has-error' : '' }}">
-                                        <label for=""> Never Expire</label>
-                                        <select name="never_expire" class="form-control" id="">
-                                            <option>Yes</option>
-                                            <option>No</option>
-                                        </select>
-    
-                                        @if ($errors->has('never_expire'))
-                                            <span class="help-block text-danger">
-                                                <strong>{{ $errors->first('never_expire') }}</strong>
-                                            </span>
-                                        @endif
-                                    </div>
-                                </div>
-                            </div> 
-                            <div class="row">
-                                <div class="col-sm-6">
                                     <div class="form-group">
                                         <label for="">Search</label>
                                         <input type="text" class="input form-control" id="address" onchange="myfunc()" name="address" required/>
                                     </div>
+                                </div>
+                            </div> 
+                            <div class="row">
+                                <div class="col-sm-6 text-center">
                                     <button type="submit" class="btn btn-info"><i class="fas fa-save"></i> Save</button>
                                 </div>
                                 <div class="col-sm-6">
