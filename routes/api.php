@@ -13,6 +13,20 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::get('all-categories', [
+
+    'uses' => 'Apis\CategoriesController@index',
+    'as'   => 'all-categories'
+]);
+
+Route::post('search-categories', [
+
+    'uses' => 'Apis\CategoriesController@search_categories',
+    'as'   => 'search-categories'
+]);
+
+Route::post('add-new-review', [
+
+    'uses' => 'Apis\CategoriesController@review',
+    'as'   => 'add-new-review'
+]);
