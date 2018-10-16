@@ -30,3 +30,9 @@ Route::post('add-new-review', [
     'uses' => 'Apis\CategoriesController@review',
     'as'   => 'add-new-review'
 ]);
+
+Route::post('get-locations', [
+
+    'uses' => 'Apis\CategoriesController@get_location',
+    'as'   => 'get-locations'
+]);
