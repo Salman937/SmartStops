@@ -128,28 +128,25 @@
                             </div>
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <div class="form-group {{ $errors->has('additional_info') ? ' has-error' : '' }}">
-                                        <label for="">Additional Info (Optional)</label>
-                                        <input type="text" class="form-control" id="" placeholder="Enter Additional Info" name="additional_info">
+                                    <div class="form-group {{ $errors->has('operator_id') ? ' has-error' : '' }}">
+                                        <label for="">Operator's ID</label>
+                                        <input type="text" class="form-control" id="" placeholder="Enter Operator's ID" name="operator_id">
     
-                                        @if ($errors->has('additional_info'))
+                                        @if ($errors->has('operator_id'))
                                             <span class="help-block text-danger">
-                                                <strong>{{ $errors->first('additional_info') }}</strong>
+                                                <strong>{{ $errors->first('operator_id') }}</strong>
                                             </span>
                                         @endif
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
-                                    <div class="form-group {{ $errors->has('never_expire') ? ' has-error' : '' }}">
-                                        <label for=""> Never Expire</label>
-                                        <select name="never_expire" class="form-control" id="">
-                                            <option>Yes</option>
-                                            <option>No</option>
-                                        </select>
+                                    <div class="form-group {{ $errors->has('operator_name') ? ' has-error' : '' }}">
+                                        <label for="">Operator's Name</label>
+                                        <input type="text" class="form-control" placeholder="Enter Operator's Name" name="operator_name">
     
-                                        @if ($errors->has('never_expire'))
+                                        @if ($errors->has('operator_name'))
                                             <span class="help-block text-danger">
-                                                <strong>{{ $errors->first('never_expire') }}</strong>
+                                                <strong>{{ $errors->first('operator_name') }}</strong>
                                             </span>
                                         @endif
                                     </div>
@@ -159,7 +156,7 @@
                                 <div class="col-sm-6">
                                     <div class="form-group {{ $errors->has('country') ? ' has-error' : '' }}">
                                         <label for="">Country</label>
-                                        <input type="text" class="form-control" id="" placeholder="Enter Country" name="country">
+                                        <input type="text" class="form-control" id="" placeholder="Canada" name="country">
     
                                         @if ($errors->has('country'))
                                             <span class="help-block text-danger">
@@ -171,7 +168,7 @@
                                 <div class="col-sm-6">
                                     <div class="form-group {{ $errors->has('province') ? ' has-error' : '' }}">
                                         <label for="">Province/State</label>
-                                        <input type="text" class="form-control" id="" placeholder="Enter Province/State" name="province">
+                                        <input type="text" class="form-control" id="" placeholder="British Columbia" name="province">
     
                                         @if ($errors->has('province'))
                                             <span class="help-block text-danger">
@@ -197,8 +194,8 @@
                                 <div class="col-sm-6">
                                     <div class="form-group {{ $errors->has('exp_date') ? ' has-error' : '' }}">
                                         <label for="">Expiry Date</label>
-                                        <input type="date" class="form-control" id="" name="exp_date">
-    
+                                        <input type="text" onfocus="(this.type='date')"  id="date" class="form-control" name="exp_date" placeholder="Never Expire">
+                                        <p class="help-block">If need expiry date then click to select expiry date</p>
                                         @if ($errors->has('exp_date'))
                                             <span class="help-block text-danger">
                                                 <strong>{{ $errors->first('exp_date') }}</strong>
@@ -235,19 +232,20 @@
                             </div> 
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <div class="form-group {{ $errors->has('operator_id') ? ' has-error' : '' }}">
-                                        <label for="">Operator's ID</label>
-                                        <input type="text" class="form-control" id="" placeholder="Enter Operator's ID" name="operator_id">
+                                <div class="form-group {{ $errors->has('additional_info') ? ' has-error' : '' }}">
+                                        <label for="">Additional Info (Optional)</label>
+                                        <input type="text" class="form-control" id="" placeholder="Enter Additional Info" name="additional_info">
     
-                                        @if ($errors->has('operator_id'))
+                                        @if ($errors->has('additional_info'))
                                             <span class="help-block text-danger">
-                                                <strong>{{ $errors->first('operator_id') }}</strong>
+                                                <strong>{{ $errors->first('additional_info') }}</strong>
                                             </span>
                                         @endif
                                     </div>
+                                    
                                 </div>
                                 <div class="col-sm-6">
-                                    <div class="form-group">
+                                <div class="form-group">
                                         <label for="">Search</label>
                                         <input type="text" class="input form-control" id="address" onchange="myfunc()" name="address" required/>
                                     </div>

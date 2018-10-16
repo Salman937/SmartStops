@@ -27,12 +27,13 @@ class CreateWaypointsCategoriesTable extends Migration
             $table->string('country');
             $table->string('province');
             $table->string('waypoint_id');
-            $table->date('exp_date');
+            $table->string('exp_date');
             $table->string('email_id');
             $table->string('phone_number');
             $table->text('address');
-            $table->string('never_expire');
+            // $table->string('never_expire');
             $table->string('operater_id');
+            $table->string('operater_name');
             $table->string('pulse')->nullable();
             $table->string('latitude');
             $table->string('longitude');

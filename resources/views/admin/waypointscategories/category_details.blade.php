@@ -38,9 +38,8 @@
                             <li class="list-group-item"><b>Email ID</b> <span class="pull-right"><b> {{ $data->email_id }}</b></span> </li>
                             <li class="list-group-item"><b>Phone Number</b> <span class="pull-right"><b> {{ $data->phone_number }}</b></span> </li>
                             <li class="list-group-item"><b>Created At</b> <span class="pull-right"><b> {{ $data->created_at }}</b></span> </li>
-                            <li class="list-group-item"><b>Naver Expiry</b> <span class="pull-right"><b> {{ $data->never_expire }}</b></span> </li>
                             <li class="list-group-item"><b>Entered By</b> <span class="pull-right">
-                                <button class="btn btn-info btn-xs">{{ $data->operater_id }}</button>
+                                <button class="btn btn-info btn-xs">{{ $data->operater_name }}</button>
                             </span> </li>
                         </ul>
                       </div>
