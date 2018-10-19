@@ -32,7 +32,7 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group {{ $errors->has('waypoint_name') ? ' has-error' : '' }}">
-                                        <label >Way-Point Name</label>
+                                        <label >Waypoint Name</label>
                                         <input type="text" class="form-control" placeholder="Enter Way-Point Name" name="waypoint_name">
     
                                         @if ($errors->has('waypoint_name'))
@@ -128,18 +128,6 @@
                             </div>
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <div class="form-group {{ $errors->has('operator_id') ? ' has-error' : '' }}">
-                                        <label for="">Operator's ID</label>
-                                        <input type="text" class="form-control" id="" placeholder="Enter Operator's ID" name="operator_id">
-    
-                                        @if ($errors->has('operator_id'))
-                                            <span class="help-block text-danger">
-                                                <strong>{{ $errors->first('operator_id') }}</strong>
-                                            </span>
-                                        @endif
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
                                     <div class="form-group {{ $errors->has('operator_name') ? ' has-error' : '' }}">
                                         <label for="">Operator's Name</label>
                                         <input type="text" class="form-control" placeholder="Enter Operator's Name" name="operator_name">
@@ -147,6 +135,18 @@
                                         @if ($errors->has('operator_name'))
                                             <span class="help-block text-danger">
                                                 <strong>{{ $errors->first('operator_name') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group {{ $errors->has('additional_info') ? ' has-error' : '' }}">
+                                        <label for="">Additional Info (Optional)</label>
+                                        <input type="text" class="form-control" id="" placeholder="Enter Additional Info" name="additional_info">
+    
+                                        @if ($errors->has('additional_info'))
+                                            <span class="help-block text-danger">
+                                                <strong>{{ $errors->first('additional_info') }}</strong>
                                             </span>
                                         @endif
                                     </div>
@@ -231,29 +231,19 @@
                                 </div>
                             </div> 
                             <div class="row">
-                                <div class="col-sm-6">
-                                <div class="form-group {{ $errors->has('additional_info') ? ' has-error' : '' }}">
-                                        <label for="">Additional Info (Optional)</label>
-                                        <input type="text" class="form-control" id="" placeholder="Enter Additional Info" name="additional_info">
-    
-                                        @if ($errors->has('additional_info'))
-                                            <span class="help-block text-danger">
-                                                <strong>{{ $errors->first('additional_info') }}</strong>
-                                            </span>
-                                        @endif
-                                    </div>
-                                    
+                                <div class="col-sm-6 text-center">
+                                    <button type="submit" class="btn btn-info"><i class="fas fa-save"></i> Save</button>
                                 </div>
                                 <div class="col-sm-6">
-                                <div class="form-group">
+                                    <div class="form-group">
                                         <label for="">Search</label>
                                         <input type="text" class="input form-control" id="address" onchange="myfunc()" name="address" required/>
                                     </div>
                                 </div>
                             </div> 
                             <div class="row">
-                                <div class="col-sm-6 text-center">
-                                    <button type="submit" class="btn btn-info"><i class="fas fa-save"></i> Save</button>
+                                <div class="col-sm-6">
+                                    
                                 </div>
                                 <div class="col-sm-6">
                                     <input type="hidden" name="latitude" class="get_lat" id="lat"/>

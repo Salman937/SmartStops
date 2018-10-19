@@ -31,8 +31,6 @@ class CreateWaypointsCategoriesTable extends Migration
             $table->string('email_id');
             $table->string('phone_number');
             $table->text('address');
-            // $table->string('never_expire');
-            $table->string('operater_id');
             $table->string('operater_name');
             $table->string('pulse')->nullable();
             $table->string('latitude');

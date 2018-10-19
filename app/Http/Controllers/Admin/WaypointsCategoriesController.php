@@ -34,7 +34,6 @@ class WaypointsCategoriesController extends Controller
             'country'         => 'required', 
             'province'        => 'required', 
             'waypoint_id'     => 'required', 
-            'operator_id'     => 'required', 
             'latitude'        => 'required', 
             'longitude'       => 'required', 
             'operator_name'   => 'required', 
@@ -59,10 +58,8 @@ class WaypointsCategoriesController extends Controller
             'address'           => $request->address,
             'latitude'          => $request->latitude,
             'longitude'         => $request->longitude,
-            // 'never_expire'      => $request->never_expire,
             'pulse'             => $request->pulse,
             'operater_name'     => $request->operator_name,
-            'operater_id'       => $request->operator_id,
             'created_at'        => date('Y-m-d H:i:s'),
             'updated_at'        => date('Y-m-d H:i:s'),
        ]);
