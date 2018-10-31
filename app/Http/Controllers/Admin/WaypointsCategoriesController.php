@@ -28,14 +28,13 @@ class WaypointsCategoriesController extends Controller
             'waypoint_name'   => 'required', 
             'category_name'   => 'required', 
             'sub_cat'         => 'required', 
-            'lat'             => 'required', 
-            'long'            => 'required', 
             'addrs'           => 'required', 
             'country'         => 'required', 
             'province'        => 'required', 
             'waypoint_id'     => 'required', 
             'latitude'        => 'required', 
             'longitude'       => 'required', 
+            'location_name'       => 'required', 
             'operator_name'   => 'required', 
        ]);
 
@@ -44,8 +43,6 @@ class WaypointsCategoriesController extends Controller
             'waypoint_name'     => $request->waypoint_name,
             'category_name'     => $request->category_name,
             'sub_cat'           => $request->sub_cat,
-            'lat'               => $request->lat,
-            'long'              => $request->long,
             'addrs'             => $request->addrs,
             'postal_code'       => $request->postal_code,
             'additional_info'   => $request->additional_info,
@@ -55,11 +52,11 @@ class WaypointsCategoriesController extends Controller
             'exp_date'          => (!empty($request->exp_dat)) ? $request->exp_dat:'Never Expire',
             'email_id'          => $request->email_id,
             'phone_number'      => $request->phone_number,
-            'address'           => $request->address,
             'latitude'          => $request->latitude,
             'longitude'         => $request->longitude,
             'pulse'             => $request->pulse,
             'operater_name'     => $request->operator_name,
+            'location_name'     => $request->location_name,
             'created_at'        => date('Y-m-d H:i:s'),
             'updated_at'        => date('Y-m-d H:i:s'),
        ]);
@@ -92,9 +89,9 @@ class WaypointsCategoriesController extends Controller
      */
     public function edit($id)
     {
-        $categories = DB::table('waypoints_categories')->where('id',$id)->first();
+        $category = DB::table('waypoints_categories')->where('id',$id)->first();
 
-        return view('admin/waypointscategories/edit')->with('category',$categories)->with('heading','edit');
+        return view('admin/waypointscategories/edit')->with('category',$category)->with('heading','edit');
     }
 
     /**
@@ -108,16 +105,40 @@ class WaypointsCategoriesController extends Controller
     {
         $this->validate($request,[
 
-            'waypoint_name'  => 'required',
-            'category_name'  => 'required',
+            'waypoint_name'   => 'required', 
+            'category_name'   => 'required', 
+            'sub_cat'         => 'required', 
+            'addrs'           => 'required', 
+            'country'         => 'required', 
+            'province'        => 'required', 
+            'waypoint_id'     => 'required', 
+            'latitude'        => 'required', 
+            'longitude'       => 'required', 
+            'location_name'       => 'required', 
+            'operator_name'   => 'required', 
         ]);
 
         DB::table('waypoints_categories')->where('id',$id)->update([
 
-            'waypoint_name' => $request->waypoint_name,
-            'category_name' => $request->category_name,
-            'created_at'    => date('Y-m-d'),
-            'updated_at'    => date('Y-m-d'),
+            'waypoint_name'     => $request->waypoint_name,
+            'category_name'     => $request->category_name,
+            'sub_cat'           => $request->sub_cat,
+            'addrs'             => $request->addrs,
+            'postal_code'       => $request->postal_code,
+            'additional_info'   => $request->additional_info,
+            'country'           => $request->country,
+            'province'          => $request->province,
+            'waypoint_id'       => $request->waypoint_id,
+            'exp_date'          => (!empty($request->exp_dat)) ? $request->exp_dat:'Never Expire',
+            'email_id'          => $request->email_id,
+            'phone_number'      => $request->phone_number,
+            'latitude'          => $request->latitude,
+            'longitude'         => $request->longitude,
+            'pulse'             => $request->pulse,
+            'operater_name'     => $request->operator_name,
+            'location_name'     => $request->location_name,
+            'created_at'        => date('Y-m-d H:i:s'),
+            'updated_at'        => date('Y-m-d H:i:s'),
         ]);
 
         Session::flash('success','Category Updated Successfully');

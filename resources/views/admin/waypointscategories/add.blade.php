@@ -2,11 +2,6 @@
       
 @section('content')
 
-<script type="text/javascript" src='http://maps.google.com/maps/api/js?key=AIzaSyCO78LKT42tZE-MgQUQBP-hrOvaGgxayYs&sensor=false&libraries=places'></script>
-
-<script src="{{ asset('assets/js/locationpicker.jquery.js') }}"></script> 
-
-
 <!--main content start-->
 <section id="main-content">
     <section class="wrapper">
@@ -27,7 +22,7 @@
                         
                         @endif
 
-                            <form role="form" action="{{ route('waypointscategories.store') }}" method="post">
+                        <form role="form" action="{{ route('waypointscategories.store') }}" method="post">
                             {{ csrf_field() }}
                             <div class="row">
                                 <div class="col-sm-6">
@@ -112,7 +107,7 @@
                                 </div>
                                 
                             </div>
-                            <div class="row">
+                            <!-- <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group ">
                                         <label for="">LongDMS</label>
@@ -125,7 +120,7 @@
                                         <input type="text" class="input form-control" name="lat" id="latitude"/>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group {{ $errors->has('operator_name') ? ' has-error' : '' }}">
@@ -231,27 +226,51 @@
                                 </div>
                             </div> 
                             <div class="row">
-                                <div class="col-sm-6 text-center">
-                                    <button type="submit" class="btn btn-info"><i class="fas fa-save"></i> Save</button>
-                                </div>
                                 <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label for="">Search</label>
-                                        <input type="text" class="input form-control" id="address" onchange="myfunc()" name="address" required/>
+                                    <div class="form-group {{ $errors->has('latitude') ? ' has-error' : '' }}">
+                                        <label for=""> Latitude </label>
+                                        <input type="text" class="form-control" id="" placeholder="Enter Latitude" name="latitude">
+    
+                                        @if ($errors->has('latitude'))
+                                            <span class="help-block text-danger">
+                                                <strong>{{ $errors->first('latitude') }}</strong>
+                                            </span>
+                                        @endif
                                     </div>
                                 </div>
-                            </div> 
-                            <div class="row">
                                 <div class="col-sm-6">
-                                    
-                                </div>
-                                <div class="col-sm-6">
-                                    <input type="hidden" name="latitude" class="get_lat" id="lat"/>
-                                    <input type="hidden" name="longitude" class="get_long" id="lon"/>
-
-                                    <div id="map-view" class="is-vcentered" style="width: 100%; height:400px;"></div>
+                                    <div class="form-group {{ $errors->has('longitude') ? ' has-error' : '' }}">
+                                        <label for=""> Longitude </label>
+                                        <input type="text" class="form-control" id="" placeholder="Enter longitude" name="longitude">
+    
+                                        @if ($errors->has('longitude'))
+                                            <span class="help-block text-danger">
+                                                <strong>{{ $errors->first('longitude') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
                                 </div>
                             </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group {{ $errors->has('location_name') ? ' has-error' : '' }}">
+                                        <label for=""> Location Name </label>
+                                        <input type="text" class="form-control" id="" placeholder="Enter Location Name" name="location_name">
+    
+                                        @if ($errors->has('location_name'))
+                                            <span class="help-block text-danger">
+                                                <strong>{{ $errors->first('location_name') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12 text-center">
+                                    <button type="submit" class="btn btn-info"><i class="fas fa-save"></i> Save</button>
+                                </div>
+                                
+                            </div> 
                         </form>
                     </div>
                 </section>

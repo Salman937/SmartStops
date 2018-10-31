@@ -26,8 +26,6 @@
                             <li class="list-group-item"><b>Category Name</b> <span class="pull-right"><b> {{ $data->category_name }}</b></span> </li>
                             <li class="list-group-item"><b>Waypoint Name</b> <span class="pull-right"><b> {{ $data->waypoint_name }}</b></span> </li>
                             <li class="list-group-item"><b>Sub Categories</b> <span class="pull-right"><b> {{ $data->sub_cat }}</b></span> </li>
-                            <li class="list-group-item"><b>LatDMS</b> <span class="pull-right"><b> {{ $data->lat }}</b></span> </li>
-                            <li class="list-group-item"><b>LongDMS</b> <span class="pull-right"><b> {{ $data->long }}</b></span> </li>
                             <li class="list-group-item"><b>Address</b> <span class="pull-right"><b> {{ $data->addrs }}</b></span> </li>
                             <li class="list-group-item"><b>Postal Code</b> <span class="pull-right"><b> {{ $data->postal_code }}</b></span> </li>
                             <li class="list-group-item"><b>Additional Info</b> <span class="pull-right"><b> {{ $data->additional_info }}</b></span> </li>
@@ -37,7 +35,7 @@
                             <li class="list-group-item"><b>Expiry Date</b> <span class="pull-right"><b> {{ $data->exp_date }}</b></span> </li>
                             <li class="list-group-item"><b>Email ID</b> <span class="pull-right"><b> {{ $data->email_id }}</b></span> </li>
                             <li class="list-group-item"><b>Phone Number</b> <span class="pull-right"><b> {{ $data->phone_number }}</b></span> </li>
-                            <li class="list-group-item"><b>Created At</b> <span class="pull-right"><b> {{ $data->created_at }}</b></span> </li>
+                            <li class="list-group-item"><b>Entery Date</b> <span class="pull-right"><b> {{    date('m-d-Y', strtotime($data->created_at)) }}</b></span> </li>
                             <li class="list-group-item"><b>Entered By</b> <span class="pull-right">
                                 <button class="btn btn-info btn-xs">{{ $data->operater_name }}</button>
                             </span> </li>

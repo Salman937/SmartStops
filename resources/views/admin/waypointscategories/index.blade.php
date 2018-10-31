@@ -26,8 +26,6 @@
                            <tr>
                               <th>Category</th>
                               <th>Sub Category</th>
-                              <th>latDMS</th>
-                              <th>longDMS</th>
                               <th>Status</th>
                               <th>Waypoint Name</th>
                               <th>Expiry Date</th>
@@ -42,8 +40,6 @@
                            <tr>
                               <td>{{ $category->category_name }}</td>
                               <td>{{ $category->sub_cat }}</td>
-                              <td>{{ $category->lat }}</td>
-                              <td>{{ $category->long }}</td>
                               <td>
                                   <a href="" class="btn btn-xs btn-success">
                                       Published
