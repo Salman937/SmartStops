@@ -31,7 +31,12 @@
                     <span>App Reviews</span>
                 </a>
             </li>
-
+            <li>
+                <a class="<?= $heading == "notification"?"active":"";?>" href="{{ route('notify') }}">
+                    <i class="fas fa-share"></i>
+                    <span>Send Notifications</span>
+                </a>
+            </li>
             <!-- <li class="sub-menu">
                 <a href="javascript:;" >
                     <i class="fas fa-question-circle"></i>

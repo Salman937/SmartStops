@@ -24,4 +24,17 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('waypointscategories', 'Admin\WaypointsCategoriesController');
     Route::resource('location', 'Admin\LocationsController');
     Route::resource('reviews', 'Admin\ReviesController');
+
+
+    Route::get('notify', [
+
+        'uses' => 'Admin\WaypointsCategoriesController@notify',
+        'as'   => 'notify'
+    ]);
+
+    Route::get('send-notify', [
+
+        'uses' => 'Admin\WaypointsCategoriesController@send_notification',
+        'as'   => 'send-notify'
+    ]);
 });

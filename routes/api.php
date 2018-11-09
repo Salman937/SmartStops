@@ -36,3 +36,15 @@ Route::post('get-locations', [
     'uses' => 'Apis\CategoriesController@get_location',
     'as'   => 'get-locations'
 ]);
+
+Route::post('insert-token', [
+
+    'uses' => 'Apis\PushNotificationsController@index',
+    'as'   => 'insert-token'
+]);
+
+Route::get('send-notification', [
+
+    'uses' => 'Apis\PushNotificationsController@send_notification',
+    'as'   => 'send-notification'
+]);
