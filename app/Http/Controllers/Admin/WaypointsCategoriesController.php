@@ -173,8 +173,8 @@ class WaypointsCategoriesController extends Controller
         }
 
         $message = array(
-                            "title"   => "First Notifiaction",
-                            "message" => "This is simple Notification from App Server"
+                            "title"   => "Smart Stops",
+                            "message" => "This is First Notification From Smart Stops"
                         );
 
         $url='https://fcm.googleapis.com/fcm/send';
@@ -199,6 +199,9 @@ class WaypointsCategoriesController extends Controller
            die('Curl failed: ' . curl_error($ch));
        }
        curl_close($ch);
-       echo $result;
+       
+       Session::flash('success','Notification Has been Send to all users');
+
+       return redirect()->back();
     }
 }
